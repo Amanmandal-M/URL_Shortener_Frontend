@@ -30,9 +30,7 @@ const postData = async (data) => {
         let shortUrl = dataRes.data.shortUrl;
         if(apiRes.status==201) {
             originalUrl.value==""
-            return prompt(`Your Short URL has been generated copy this URL : ${baseUrl}/${shortUrl}` , setTimeout(()=>{
-                window.open(`${baseUrl}/${shortUrl}`);
-            },30000));       
+            return alert(`Your Short URL has been generated see below`), appendUrl.textContent=`${baseUrl}/${shortUrl}`;
         }
     } catch (error) {
         alert("Error: " + error)

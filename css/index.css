@@ -1,4 +1,4 @@
-body {
+#mainContainer {
     background-color: #f0f2f5;
     display: flex;
     justify-content: center;
@@ -50,4 +50,6 @@ body {
 
 h2{
     color: blue;
+    text-align: center;
+    margin-top: -150px;
 }
