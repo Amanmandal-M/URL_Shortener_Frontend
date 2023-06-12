@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>URL Shortener</title>
+</head>
+<body>
+
+    <div class="card">
+        <p>Shorten a long URL</p>
+        <input type="url" class="originalUrl" placeholder="Enter long link here" required>
+        
+        <h3>Customize your link</h3>
+        <input type="text" maxlength="5" placeholder="Enter Alias (Optional)">
+        <label>Alias must be at least 5 alphanumeric characters</label>
+        
+        <button id="shortButton">Shorten URL</button>
+    </div>
+
+    <h2 id="appendShortUrl"></h2>
+</body>
+</html>
+<script src="./js/index.js"></script>
