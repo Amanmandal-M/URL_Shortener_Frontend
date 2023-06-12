@@ -4,10 +4,10 @@ const postUrl = `${baseUrl}/`
 
 const shortButton = document.getElementById('shortButton');
 const appendUrl = document.querySelector('#appendShortUrl');
+const originalUrl = document.querySelector('.originalUrl');
 
 shortButton.addEventListener('click', (e) =>{
     e.preventDefault();
-    const originalUrl = document.querySelector('.originalUrl');
     
     let obj = {'originalUrl': originalUrl.value}
 
