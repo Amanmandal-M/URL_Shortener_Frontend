@@ -31,8 +31,8 @@ const postData = async (data) => {
         if(apiRes.status==201) {
             originalUrl.value==""
             return prompt(`Your Short URL has been generated copy this URL : ${baseUrl}/${shortUrl}` , setTimeout(()=>{
-                window.location.href=`${baseUrl}/${shortUrl}`
-            },10000));       
+                window.open(`${baseUrl}/${shortUrl}`);
+            },30000));       
         }
     } catch (error) {
         alert("Error: " + error)
