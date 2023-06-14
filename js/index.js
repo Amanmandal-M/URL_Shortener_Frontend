@@ -13,7 +13,7 @@ shortButton.addEventListener("click", (e) => {
     return swal.fire({
       icon: "info",
       title: "Enter URL First",
-      width:"auto"
+      width: "auto",
     });
   let obj = { originalUrl: originalUrl.value };
 
@@ -28,7 +28,6 @@ shortButton.addEventListener("click", (e) => {
       break;
     }
   }
-  console.log(flag);
 
   if (flag) {
     shortButton.innerHTML = `<div class="spinner"></div>`;
@@ -37,7 +36,7 @@ shortButton.addEventListener("click", (e) => {
     return swal.fire({
       icon: "info",
       title: "You are not using valid URL!",
-      width:"auto"
+      width: "auto",
     });
 });
 
@@ -75,7 +74,7 @@ const postData = async (data) => {
               : +Swal.insertQueueStep({
                   icon: "error",
                   title: "Unable to get your URL",
-                  width:"auto"
+                  width: "auto",
                 });
           },
         },
@@ -83,11 +82,11 @@ const postData = async (data) => {
     }
   } catch (error) {
     swal.fire({
-        icon: "error",
-        title: "Internal error 500",
-        width:"auto"
+      icon: "error",
+      title: "Internal error 500",
+      width: "auto",
     });
-    shortButton.textContent = "Shorten URL"
-    width:"auto"
+    shortButton.textContent = "Shorten URL";
+    width: "auto";
   }
 };
