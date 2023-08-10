@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
-
-    <!---------------------- Sweet Alert ---------------------->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <title>URL Shortener</title>
 </head>
 <body>
-
     <div id="mainContainer">
         <div class="card">
-            <p>Shorten a long URL</p>
-            <input type="url" class="originalUrl" placeholder="Enter long link here" required>
+            <h1 class="title">URL Shortener</h1>
+            <p>Generate a concise link for your long URLs.</p>
+            <input type="url" class="originalUrl" placeholder="Enter your long URL" required>
             
             <h3>Customize your link</h3>
-            <input type="text" maxlength="5" placeholder="Enter Alias (Optional)">
-            <label>Alias must be at least 5 alphanumeric characters</label>
+            <input type="text" id="myInput" maxlength="10" pattern="[0-9a-zA-Z]{5,10}" placeholder="Enter Alias (Optional)">
+            <label>Alias must be 5 to 10 alphanumeric characters</label>
             
             <button id="shortButton">Shorten URL</button>
         </div>
@@ -27,6 +24,7 @@
 
     <h2 id="appendShortUrl"></h2>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
-<script src="./js/index.js"></script>

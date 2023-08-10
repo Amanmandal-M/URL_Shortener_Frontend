@@ -9,6 +9,8 @@ const originalUrl = document.querySelector(".originalUrl");
 shortButton.addEventListener("click", (e) => {
   e.preventDefault();
 
+  validateInput();
+
   if (originalUrl.value == "")
     return swal.fire({
       icon: "info",
@@ -41,6 +43,75 @@ shortButton.addEventListener("click", (e) => {
 });
 
 const postData = async (data) => {
+  try {
+    const apiRes = await fetch(postUrl, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const dataRes = await apiRes.json();
+
+    let shortUrl = dataRes.data.shortUrl;
+    if (apiRes.status == 201) {
+      const ipAPI = `${baseUrl}/${shortUrl}`;
+      shortButton.textContent = "Shorten URL";
+
+      Swal.queue([
+        {
+          icon: "success",
+          title: "Shorted URL",
+          confirmButtonText: "Show my Shorted URL",
+          showLoaderOnConfirm: true,
+          preConfirm: () => {
+            return ipAPI
+              ? (Swal.insertQueueStep({
+                  title: ipAPI,
+                  width: "auto",
+                  color: "blue",
+                  confirmButton: true,
+                }),
+                (originalUrl.value = ""))
+              : +Swal.insertQueueStep({
+                  icon: "error",
+                  title: "Unable to get your URL",
+                  width: "auto",
+                });
+          },
+        },
+      ]);
+    }
+  } catch (error) {
+    swal.fire({
+      icon: "error",
+      title: "Internal error 500",
+      width: "auto",
+    });
+    shortButton.textContent = "Shorten URL";
+    width: "auto";
+  }
+};
+
+function validateInput() {
+  let input = document.getElementById("myInput").value;
+  let pattern = /^[0-9a-zA-Z]{5}$/;
+
+  if (input == "")
+    return swal.fire({
+      icon: "info",
+      title: "Enter URL First",
+      width: "auto",
+    });
+
+  if (pattern.test(input)) {
+    alert("Input is valid.");
+  } else {
+    alert("Input is invalid.");
+  }
+}
+
+const postDataAliasData = async (data) => {
   try {
     const apiRes = await fetch(postUrl, {
       method: "POST",
